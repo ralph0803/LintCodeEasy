@@ -13,6 +13,7 @@ public class Solution {
         int j = 1;
         int tmp = 0;
         
+        // just swap the wanted values to the front, don't need care of the remaining elements
         while (j < nums.length) {
             if (nums[i] == nums[j]) {
                 // i stops, j moves
