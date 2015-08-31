@@ -1,0 +1,20 @@
+public class Solution {
+    /**
+     * @param str: a string
+     * @return: a boolean
+     */
+    public boolean isUnique(String str) {
+        // write your code here
+        ArrayList<Character> list = new ArrayList<Character>();
+        boolean uniqueFlag = true;
+        for (int i = 0; i < str.length(); i++) {
+            if (list.contains(str.charAt(i))) {
+                uniqueFlag = false;
+                return uniqueFlag;
+            } else {
+                list.add(str.charAt(i));
+            }
+        }
+        return uniqueFlag;
+    }
+}
