@@ -12,6 +12,7 @@ public class Solution {
         int idx = -1;
         int start = 0, end = A.length - 1;
         
+        // 二分查找模板
         while (start + 1 < end) {
             int mid = start + (end - start) / 2;
             if (A[mid] == target) {
