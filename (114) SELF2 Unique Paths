@@ -10,6 +10,7 @@ public class Solution {
         }
         
         // another way: broaden the 2-d array to deal with the boundary conditions
+        // java initialize array with default value 0, so don't need to give 0s to them
         int[][] grid = new int[m+1][n+1];
         for (int i = 1; i < m+1; i++) {
             for (int j = 1; j < n+1; j++) {
