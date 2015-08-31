@@ -15,16 +15,14 @@
  * }
  */
 public class Solution {
-    public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+    public List<Interval> merge(List<Interval> intervals) {
         if (intervals == null || intervals.size() <= 1) {
             return intervals;
         }
         
-        // 重载sort函数！！！
         Collections.sort(intervals, new IntervalComparator());       
-        // 新开了一个ArrayList
+  
         ArrayList<Interval> result = new ArrayList<Interval>();
-        
         Interval last = intervals.get(0);
         for (int i = 1; i < intervals.size(); i++) {
             Interval curt = intervals.get(i);
@@ -35,10 +33,10 @@ public class Solution {
                 last = curt;
             }
         }
-        
         result.add(last);
         return result;
     }
+    
     
     private class IntervalComparator implements Comparator<Interval> {
         public int compare(Interval a, Interval b) {
