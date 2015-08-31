@@ -1,0 +1,34 @@
+class Solution {
+    /**
+     * @param A and B: sorted integer array A and B.
+     * @return: A new sorted integer array
+     */
+    public ArrayList<Integer> mergeSortedArray(ArrayList<Integer> A, ArrayList<Integer> B) {
+        // write your code here
+        if (A == null && B == null) {
+            return null;
+        }
+        
+        int i = 0;
+        int j = 0;
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        
+        while (i < A.size() && j < B.size()) {
+            if (A.get(i) < B.get(j)) {
+                result.add(A.get(i));
+                i++;
+            } else {
+                result.add(B.get(j));
+                j++;
+            }
+        }
+        
+        // didn't know the addAll method, didn't know the subList method...
+        if (i == A.size()) {
+                result.addAll(B.subList(j, B.size()));
+        } else {
+                result.addAll(A.subList(i, A.size()));
+        }
+        return result;
+    }
+}
