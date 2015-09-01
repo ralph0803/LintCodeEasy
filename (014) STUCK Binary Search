@@ -16,7 +16,8 @@ class Solution {
         while (start + 1 < end) {
             int mid = start + (end - start) / 2;
             if (nums[mid] == target) {
-                end = mid;
+                end = mid;    // find the first equal element
+                //start = mid;    // find the last equal element
             } else if (nums[mid] < target) {
                 start = mid;
             } else {
