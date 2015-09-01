@@ -26,9 +26,11 @@ class Solution {
         }
         
         if (nums[start] == target) {
+            // if find the last equal element, this will be triggered
             return start;
         }
         if (nums[end] == target) {
+            // if find the first equal element, this will be triggered
             return end;
         }
         return -1;
