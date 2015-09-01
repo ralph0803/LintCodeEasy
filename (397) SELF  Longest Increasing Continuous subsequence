@@ -1,0 +1,47 @@
+public class Solution {
+    /**
+     * @param A an array of Integer
+     * @return  an integer
+     */
+    public int longestIncreasingContinuousSubsequence(int[] A) {
+        // Write your code here
+        if (A == null || A.length == 0) {
+            return 0;
+        }
+        if (A.length == 1) {
+            return 1;
+        }
+        int countA = 1;
+        int countD = 1;
+        int maxA = -1;
+        int maxD = -1;
+
+        for (int i = 0; i < A.length-1; i++) {
+            if (A[i] < A[i+1]) {
+                countA++;
+                if (countD > maxD) {
+                    maxD = countD;
+                }
+                countD = 1;
+            } else if (A[i] > A[i+1]) {
+                countD++;
+                if (countA > maxA) {
+                    maxA = countA;
+                }
+                countA = 1;
+            } else {
+                if (countD > maxD) {
+                    maxD = countD;
+                }
+                if (countA > maxA) {
+                    maxA = countA;
+                }
+                countD = 1;
+                countA = 1;
+            }
+        }
+        maxA = Math.max(maxA,countA);
+        maxD = Math.max(maxD,countD);
+        return Math.max(maxA,maxD);
+    }
+}
