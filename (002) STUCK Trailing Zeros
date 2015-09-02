@@ -9,6 +9,7 @@ class Solution {
         }
         long d = 5;
         long result = 0;
+        //精妙！
         while (d <= n) {
             result += n / d;
             d *= 5;
