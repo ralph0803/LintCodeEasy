@@ -1,0 +1,18 @@
+class Solution {
+    /*
+     * param n: As desciption
+     * return: An integer, denote the number of trailing zeros in n!
+     */
+    public long trailingZeros(long n) {
+        if (n <= 0) {
+            return 0;
+        }
+        long d = 5;
+        long result = 0;
+        while (d <= n) {
+            result += n / d;
+            d *= 5;
+        }
+        return result;
+    }
+};
