@@ -1,0 +1,64 @@
+public class Solution {
+    /**
+     * @param a a number
+     * @param b a number
+     * @return the result
+     */
+    public String addBinary(String a, String b) {
+        // Write your code here
+        if ((a == null || a.isEmpty()) && (b == null || b.isEmpty())) {
+            return null;
+        }
+        
+        if ((a != null || !a.isEmpty()) && (b == null || b.isEmpty())) {
+            return a;
+        }
+        
+        if ((a == null || a.isEmpty()) && (b != null || !b.isEmpty())) {
+            return b;
+        }
+        
+        int lenA = a.length();
+        int lenB = b.length();
+        int rem = 0, carry = 0;
+        int i = lenA-1, j = lenB-1;
+        int tmp = 0;
+        String result = "";
+        
+        while (i > -1 && j > -1) {
+            int tmp1 = Character.getNumericValue(a.charAt(i));
+            int tmp2 = Character.getNumericValue(b.charAt(j));
+            tmp = tmp1 + tmp2 + carry;
+            rem = tmp % 2;
+            carry = tmp / 2;
+            result = "" + rem + result;
+            i--;
+            j--;
+        }
+        
+        if (i < 0) {
+            while (j > -1) {
+                tmp = Character.getNumericValue(b.charAt(j)) + carry;
+                rem = tmp % 2;
+                carry = tmp / 2;
+                result = "" + rem + result;
+                j--;
+            }
+        }
+        
+        if (j < 0) {
+            while (i > -1) {
+                tmp = Character.getNumericValue(a.charAt(i)) + carry;
+                rem = tmp % 2;
+                carry = tmp / 2;
+                result = "" + rem + result;
+                i--;
+            }
+        }
+        
+        if (carry == 1) {
+            result = "" + 1 + result;
+        }
+        return result;
+    }
+}
