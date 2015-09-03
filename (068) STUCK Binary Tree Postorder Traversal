@@ -37,16 +37,16 @@ public ArrayList<Integer> postorderTraversal(TreeNode root) {
         curr = stack.peek();
         if (prev == null || prev.left == curr || prev.right == curr) { // traverse down the tree
             if (curr.left != null) {
-                stack.push(curr.left);
+                stack.push(curr.left);  //如果畅通无阻，先一个劲地push左边的子结点，直到探底
             } else if (curr.right != null) {
-                stack.push(curr.right);
+                stack.push(curr.right); //如果左子结点没有，先一个劲地push左边的子结点，直到探底
             }
         } else if (curr.left == prev) { // traverse up the tree from the left
             if (curr.right != null) {
-                stack.push(curr.right);
+                stack.push(curr.right); //左边已经回来，再去遍历父结点的右子结点
             }
-        } else { // traverse up the tree from the right
-            result.add(curr.val);
+        } else { // traverse up the tree from the left or right
+            result.add(curr.val);   //探底后，把叶结点add进去，然后curr往上走
             stack.pop();
         }
         prev = curr;
