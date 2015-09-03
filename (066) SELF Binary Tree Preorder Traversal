@@ -9,7 +9,7 @@
  *     }
  * }
  */
-//递归方法
+//分治方法
 public class Solution {
     /**
      * @param root: The root of binary tree.
