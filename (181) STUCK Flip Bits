@@ -1,0 +1,25 @@
+class Solution {
+	/**
+	 *@param a, b: Two integer
+	 *return: An integer
+	 */
+	public static int bitSwapRequired(int a, int b) {
+		if (a == b) {
+			return 0;
+		}
+		int bit = a ^ b;
+		int count = 0;
+		// integer has 32 bits
+		int number = 32;
+		// you cannot just check bit > 0 in the while statement
+		// because a or b maybe negative number
+		while (number > 0) {
+			// 每一次检查最后一位，和1去与，为的是只检查最后一位，因为其余位数都会变成0。
+			count += bit & 1;
+      // 右移一位，接着检查倒数第二位、第三位，以此类推
+			bit = bit >> 1;
+			number--;
+		}
+		return count;
+	}
+};
