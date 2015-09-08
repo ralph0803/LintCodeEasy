@@ -1,0 +1,48 @@
+public class Solution {
+    /**
+     * @param n the nth
+     * @return the nth sequence
+     */
+    public String countAndSay(int n) {
+        // Write your code here
+        if (n == 0) {
+          return "";
+        }
+        // 后面的尖括号不需要再声明字符类型
+        ArrayList<String> data = new ArrayList<>();
+        data.add("0");
+        data.add("1");
+    
+        if (n == 1) {
+          return data.get(1);
+        }
+    
+        int count = 0;
+        char curr = '\0';
+        char rec = '\0';
+        String result = "";
+        for (int i = 2; i <= n; i++) {
+          for (int j = 0; j < data.get(i - 1).length(); j++) {
+            curr = data.get(i - 1).charAt(j);
+            if (j == 0) {
+              rec = curr;
+              count++;
+            } else {
+              if (rec == curr) {
+                count++;
+              } else {
+                result = result + "" + count + rec;
+                rec = curr;
+                count = 1;
+              }
+            }
+          }
+          result = result + "" + count + rec;
+          data.add(result);
+          rec = '\0';
+          count = '\0';
+          result = "";  //清空result很重要！！
+        }
+        return data.get(n);
+    }
+}
