@@ -5,6 +5,9 @@ public class Solution {
      * @return :  if string A contains all of the characters in B return true else return false
      */
     public boolean compareStrings(String A, String B) {
+        if (A == null || B == null || A.length() < B.length()) {
+            return false;
+        }
         int[] AA = new int[26];
         int[] BB = new int[26];
         for (int i=0; i<A.length(); i++) {
