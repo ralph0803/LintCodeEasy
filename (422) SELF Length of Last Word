@@ -1,0 +1,30 @@
+public class Solution {
+    /**
+     * @param s A string
+     * @return the length of last word
+     */
+    public int lengthOfLastWord(String s) {
+        // Write your code here
+        if (s == null || s == "" || s == " ") {
+            return 0;
+        }
+        
+        int start = -1;
+        int end = -1;
+        boolean wordFlag = false;
+        int result = 0;
+        for (int i = s.length()-1; i >= 0; i--) {
+            if (wordFlag == false && ((s.charAt(i) <= 'z' && s.charAt(i) >= 'a') || (s.charAt(i) >= 'A' && s.charAt(i) <= 'Z'))) {
+                wordFlag = true;
+                end = i;
+            } else if (wordFlag == true) {
+                if (s.charAt(i) == ' ') {
+                    start = i;
+                    break;
+                }
+            }
+        }
+        result = end - start;
+        return result;
+    }
+}
