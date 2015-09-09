@@ -8,7 +8,7 @@ public class Solution {
         if (s == null || s == "" || s == " ") {
             return 0;
         }
-        
+        // 很关键的是初始化的值！！！
         int start = -1;
         int end = -1;
         boolean wordFlag = false;
