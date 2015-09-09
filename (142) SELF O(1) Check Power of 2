@@ -1,0 +1,22 @@
+class Solution {
+    /*
+     * @param n: An integer
+     * @return: True or false
+     */
+    public boolean checkPowerOf2(int n) {
+        // write your code here
+        if (n <= 0) {
+            return false;
+        }
+        if (n == 1) {
+            return true;
+        }
+        
+        int sub = n - 1;
+        int xor = sub & n;
+        if (xor == 0) {
+            return true;
+        }
+        return false;
+    }
+};
