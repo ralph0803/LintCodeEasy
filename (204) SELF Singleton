@@ -1,0 +1,14 @@
+class Solution {
+    /**
+     * @return: The same instance of this class every time
+     */
+    // 借鉴Netbeans IDE已有的singleton自动生成的代码!!!
+    public static Solution getInstance() {
+        // write your code here
+        return solutionMonitorHolder.INSTANCE;
+    }
+    
+    private static class solutionMonitorHolder {
+        private static final Solution INSTANCE = new Solution();
+    }
+};
