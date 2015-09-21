@@ -1,0 +1,42 @@
+class Solution {
+    /**
+     * Returns a index to the first occurrence of target in source,
+     * or -1  if target is not part of source.
+     * @param source string to be scanned.
+     * @param target string containing the sequence of characters to match.
+     */
+    public int strStr(String source, String target) {
+        //write your code here
+        //各种的null和length == 0的情况非常麻烦
+        if (source == null) {
+            return -1;
+        } else if (source.length() == 0 && target.length() == 0) {
+            return 0;
+        } else if (source.length() == 0) {
+            return -1;
+        } else if (target == null) {
+            return -1;
+        } else if (target.length() == 0) {
+            return 0;
+        }
+        
+        int idxT = 0;
+        boolean flag = false;
+        
+        for (int i = 0; i < source.length(); i++) {
+            if (source.charAt(i) == target.charAt(idxT)) {
+                flag = true;
+                for (int j = i+1; j < target.length(); j++) {
+                    if (source.charAt(j) == target.charAt(j-i)) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag == true) {
+                    return 1;
+                }
+            }
+        }
+        return -1;
+    }
+}
